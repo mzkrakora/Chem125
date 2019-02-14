@@ -6,6 +6,7 @@ from math import *
 
 # After fitting data points to curve, fill in values here to get the constants of B_0, B_1, v_1, etc.
 #Note here we are detecting the overtone transition so m = 2
+#for each isotope, inserted the correct curve fit as well as the molar mass
 x = 35 #molar mass of Cl
 y = 1 #molar mass of H
 v_m= "5674 + 20.3x -.712x^2"
