@@ -3,13 +3,15 @@ Date = 13 February 2019
 Title = HCl DCl analysis '''
 
 from math import *
+from sympy import Symbol, Derivative
 
 # After fitting data points to curve, fill in values here to get the constants of B_0, B_1, v_1, etc.
 #Note here we are detecting the overtone transition so m = 2
-#for each isotope, inserted the correct curve fit as well as the molar mass
-x = 35 #molar mass of Cl
-y = 1 #molar mass of H
-v_m= "5674 + 20.3x -.712x^2"
+x = Symbol('x')
+z = 37 #molar mass of Cl
+y = 2 #molar mass of H
+v_m= 4118+ 12.4*x -.215*x**2
+dv = Derivative(v_m, x).doit()
 delta_v = "2m(B_1 - B_0) + 2B_1"
 a = -.712
 b = 20.3
