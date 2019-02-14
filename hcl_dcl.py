@@ -35,6 +35,66 @@ x_e = (2*v_0-v_1)/(2*v_0 - 2*v_1) #unitless
 w_e = v_0 / (1-2*x_e) #units of wavenumbers
 k = ((2*pi*c_speed*w_e)**2)*mu(x,y)
 D = (4*(B_e**3))/(w_e**2)
+#Calculating vibrational frequency for other isotopes.
+def isotope_effect_rule(w_e_1, mu_1, mu_2):
+    '''returns w_e_2*'''
+    return (w_e_1)/(mu_1/mu_2)**.5
 
+'''Statistical Mechanics Portion'''
+#constants
+B = 10.59341
+h = 6.626*10**(-34) #J*sec
+c = c_speed
+k_B = 1.3807*10**(-23) #J*sec / K
 
-print("For H_35_Cl, v_0 = {v_0}, v_1 = {v_1}, alpha_e = {alpha_e}, B_0 = {B_0}, B_1 = {B_1}, r_0 = {r_0*100} ang, r_1 = {r_1*100} Ang, r_e = {r_e*10**10}, B_e = {B_e}, x_e = {x_e}, w_e = {w_e} (cm-1), k = {k}, D = {D}")
+def N_J(J, T):
+    '''returns the number of molecules in a given rotational state
+    at a given temperature'''
+    return (2*J +1)*(e**(-(B*J*(J+1)*h*c)/(k_B*T)))
+#RT
+# print("RT_1 is", N_J(1, 300))
+# print("100_2 is", N_J(2, 300))
+# print("RT_3 is", N_J(3, 300))
+# print("RT_4 is", N_J(4, 300))
+# print("RT_5 is", N_J(5, 300))
+# print("RT_6 is", N_J(6, 300))
+# print("RT_7 is", N_J(7, 300))
+# print("RT_8 is", N_J(8, 300))
+# print("RT_9 is", N_J(9, 300))
+# print("RT_10 is", N_J(10, 300))
+
+#100 K
+# print(N_J(1, 100))
+# print(N_J(2, 100))
+# print(N_J(3, 100))
+# print(N_J(4, 100))
+# print(N_J(5, 100))
+# print(N_J(6, 100))
+# print(N_J(7, 100))
+# print(N_J(8, 100))
+# print(N_J(9, 100))
+# print(N_J(10, 100))
+
+#500K
+# print(N_J(1, 500))
+# print(N_J(2, 500))
+# print(N_J(3, 500))
+# print(N_J(4, 500))
+# print(N_J(5, 500))
+# print(N_J(6, 500))
+# print(N_J(7, 500))
+# print(N_J(8, 500))
+# print(N_J(9, 500))
+# print(N_J(10, 500))
+
+#1000 K
+print(N_J(1, 1000))
+print(N_J(2, 1000))
+print(N_J(3, 1000))
+print(N_J(4, 1000))
+print(N_J(5, 1000))
+print(N_J(6, 1000))
+print(N_J(7, 1000))
+print(N_J(8, 1000))
+print(N_J(9, 1000))
+print(N_J(10, 1000))
